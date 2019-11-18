@@ -14,7 +14,7 @@ public class Asteroid : MonoBehaviour
 
     public void Move()
     {
-        transform.Translate(Vector3.down * Time.deltaTime * speed);
+        transform.Translate(Vector3.up * Time.deltaTime * speed);
         if (transform.position.y < maxY)
         {
             Destroy(gameObject);
