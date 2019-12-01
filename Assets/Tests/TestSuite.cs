@@ -24,7 +24,7 @@ public class TestSuite
     [UnityTest]
     public IEnumerator LaserShoots()
     {
-        GameObject lazer = game.GetShip().SpawnLaser();
+        GameObject lazer = game.GetPlayer().SpawnLaser();
         float initialYPos = lazer.transform.position.y;
         yield return new WaitForSeconds(0.1f);
 
@@ -36,7 +36,7 @@ public class TestSuite
     {
         GameObject asteroid = game.GetSpawner().SpawnAsteroid();
         asteroid.transform.position = Vector3.zero;
-        GameObject lazer = game.GetShip().SpawnLaser();
+        GameObject lazer = game.GetPlayer().SpawnLaser();
         lazer.transform.position = Vector3.zero;
         yield return new WaitForSeconds(0.1f);
 
@@ -48,7 +48,7 @@ public class TestSuite
     {
         GameObject asteroid = game.GetSpawner().SpawnAsteroid();
         asteroid.transform.position = Vector3.zero;
-        GameObject lazer = game.GetShip().SpawnLaser();
+        GameObject lazer = game.GetPlayer().SpawnLaser();
         lazer.transform.position = Vector3.zero;
         yield return new WaitForSeconds(0.1f);
 
@@ -69,7 +69,7 @@ public class TestSuite
     public IEnumerator GameResets()
     {
         GameObject asteroid = game.GetSpawner().SpawnAsteroid();
-        asteroid.transform.position = game.GetShip().transform.position;
+        asteroid.transform.position = game.GetPlayer().transform.position;
         yield return new WaitForSeconds(0.1f);
 
         Assert.True(game.isGameOver);

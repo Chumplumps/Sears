@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public bool isDead = false;
     public float speed = 1;
@@ -86,7 +86,7 @@ public class Ship : MonoBehaviour
         isDead = true;
     }
 
-    public void RepairShip()
+    public void Reset()
     {
         explosion.SetActive(false);
         isDead = false;

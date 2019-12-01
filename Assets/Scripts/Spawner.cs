@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public List<GameObject> asteroids = new List<GameObject>();
+    public List<GameObject> enemies = new List<GameObject>();
 
     [SerializeField]
-    private GameObject asteroid1;
+    private GameObject enemy1;
     [SerializeField]
-    private GameObject asteroid2;
+    private GameObject enemy2;
     [SerializeField]
-    private GameObject asteroid3;
+    private GameObject enemy3;
     [SerializeField]
-    private GameObject asteroid4;
+    private GameObject enemy4;
 
     public void BeginSpawning()
     {
@@ -32,45 +32,44 @@ public class Spawner : MonoBehaviour
     public GameObject SpawnAsteroid()
     {
         int random = Random.Range(1, 5);
-        GameObject asteroid;
+        GameObject enemy;
         switch (random)
         {
             case 1:
-                asteroid = Instantiate(asteroid1);
+                enemy = Instantiate(enemy1);
                 break;
             case 2:
-                asteroid = Instantiate(asteroid2);
+                enemy = Instantiate(enemy2);
                 break;
             case 3:
-                asteroid = Instantiate(asteroid3);
+                enemy = Instantiate(enemy3);
                 break;
             case 4:
-                asteroid = Instantiate(asteroid4);
+                enemy = Instantiate(enemy4);
                 break;
             default:
-                asteroid = Instantiate(asteroid1);
+                enemy = Instantiate(enemy1);
                 break;
         }
 
-        asteroid.SetActive(true);
+        enemy.SetActive(true);
         float xPos = Random.Range(-8.0f, 8.0f);
 
-        // Spawn asteroid just above top of screen at a random point along x-axis
-        asteroid.transform.position = new Vector3(xPos, 7.35f, 0);
+        enemy.transform.position = new Vector3(xPos, 7.35f, 0);
 
-        asteroids.Add(asteroid);
+        enemies.Add(enemy);
 
-        return asteroid;
+        return enemy;
     }
 
-    public void ClearAsteroids()
+    public void ClearEnemies()
     {
-        foreach(GameObject asteroid in asteroids)
+        foreach(GameObject enemy in enemies)
         {
-            Destroy(asteroid);
+            Destroy(enemy);
         }
 
-        asteroids.Clear();
+        enemies.Clear();
     }
 
     public void StopSpawning()

@@ -18,11 +18,11 @@ public class Laser : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<Asteroid>() != null)
+        if (collision.gameObject.GetComponent<Enemy>() != null)
         {
-            Game.AsteroidDestroyed();
+            Game.EnemyDestroyed();
             Destroy(gameObject);
-            FindObjectOfType<Spawner>().asteroids.Remove(collision.gameObject);
+            FindObjectOfType<Spawner>().enemies.Remove(collision.gameObject);
             Destroy(collision.gameObject);
         }
     }

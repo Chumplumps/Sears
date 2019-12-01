@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Asteroid : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public float speed = 1;
     private float maxY = -5;

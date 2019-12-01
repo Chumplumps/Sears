@@ -38,7 +38,7 @@ public class Game : MonoBehaviour
         instance.startGameButton.SetActive(true);
         instance.isGameOver = true;
         instance.spawner.StopSpawning();
-        instance.player.GetComponent<Ship>().Explode();
+        instance.player.GetComponent<Player>().Explode();
         instance.gameOverText.enabled = true;
     }
 
@@ -53,20 +53,20 @@ public class Game : MonoBehaviour
         scoreText.text = "SEARS: " + score;
         scoreText.enabled = true;
         spawner.BeginSpawning();
-        player.GetComponent<Ship>().RepairShip();
-        spawner.ClearAsteroids();
+        player.GetComponent<Player>().Reset();
+        spawner.ClearEnemies();
         gameOverText.enabled = false;
     }
 
-    public static void AsteroidDestroyed()
+    public static void EnemyDestroyed()
     {
         instance.score++;
         instance.scoreText.text = "SEARS: " + instance.score;
     }
 
-    public Ship GetShip()
+    public Player GetPlayer()
     {
-        return player.GetComponent<Ship>();
+        return player.GetComponent<Player>();
     }
 
     public Spawner GetSpawner()
