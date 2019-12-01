@@ -8,6 +8,7 @@ public class TestSuite
 {
     private Game game;
 
+    //Commences test
     [SetUp]
     public void Setup()
     {
@@ -15,12 +16,14 @@ public class TestSuite
         game = gameGameObject.GetComponent<Game>();
     }
 
+    //Concludes test
     [TearDown]
     public void Teardown()
     {
         Object.Destroy(game.gameObject);
     }
 
+    //Tests to see if laser shoots
     [UnityTest]
     public IEnumerator LaserShoots()
     {
@@ -31,8 +34,9 @@ public class TestSuite
         Assert.Greater(lazer.transform.position.y, initialYPos);
     }
 
+    //Tests to see if laser destroys enemies
     [UnityTest]
-    public IEnumerator LaserDestroysFolks()
+    public IEnumerator LaserDestroysEnemies()
     {
         GameObject asteroid = game.GetSpawner().SpawnAsteroid();
         asteroid.transform.position = Vector3.zero;
@@ -43,6 +47,7 @@ public class TestSuite
         UnityEngine.Assertions.Assert.IsNull(asteroid);
     }
 
+    //Tests to see if score increases when enemies are destroyed
     [UnityTest]
     public IEnumerator ScoreIncreases()
     {
@@ -55,8 +60,9 @@ public class TestSuite
         Assert.AreEqual(game.score, 1);
     }
 
+    //Tests to see if enemies descend
     [UnityTest]
-    public IEnumerator FolksMoveDown()
+    public IEnumerator EnemiesMoveDown()
     {
         GameObject asteroid = game.GetSpawner().SpawnAsteroid();
         float initialYPos = asteroid.transform.position.y;
@@ -65,6 +71,7 @@ public class TestSuite
         Assert.Less(asteroid.transform.position.y, initialYPos);
     }
 
+    //Tests to see if game resets
     [UnityTest]
     public IEnumerator GameResets()
     {

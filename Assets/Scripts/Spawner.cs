@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+
     public List<GameObject> enemies = new List<GameObject>();
 
     [SerializeField]
@@ -16,11 +17,13 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private GameObject enemy4;
 
+    //Commences spawning
     public void BeginSpawning()
     {
         StartCoroutine("Spawn");
     }
 
+    //Regularly spawns enemies
     IEnumerator Spawn()
     {
         yield return new WaitForSeconds(0.4f);
@@ -29,6 +32,7 @@ public class Spawner : MonoBehaviour
         StartCoroutine("Spawn");
     }
 
+    //Spawns enemies in random locations
     public GameObject SpawnAsteroid()
     {
         int random = Random.Range(1, 5);
@@ -62,6 +66,7 @@ public class Spawner : MonoBehaviour
         return enemy;
     }
 
+    //Enemies clear when game is over
     public void ClearEnemies()
     {
         foreach(GameObject enemy in enemies)

@@ -23,6 +23,8 @@ public class Game : MonoBehaviour
 
     private static Game instance;
 
+
+    //Sets everything that's required to being active
     private void Start()
     {
         instance = this;
@@ -32,6 +34,7 @@ public class Game : MonoBehaviour
         startGameButton.SetActive(true);
     }
 
+    //Ends the game and provides the player the option to reset
     public static void GameOver()
     {
         instance.titleText.enabled = true;
@@ -42,6 +45,7 @@ public class Game : MonoBehaviour
         instance.gameOverText.enabled = true;
     }
 
+    //Resets the game scene
     public void NewGame()
     {
         isGameOver = false;
@@ -58,6 +62,7 @@ public class Game : MonoBehaviour
         gameOverText.enabled = false;
     }
 
+    //Increases the score
     public static void EnemyDestroyed()
     {
         instance.score++;

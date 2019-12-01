@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     private float maxLeft = -8;
     private float maxRight = 8;
 
+
+    //Enables the player's controls unless they're dead
     private void Update()
     {
         if (isDead)
@@ -41,11 +43,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    //Activates the player attack
     public void ShootLaser()
     {
         StartCoroutine("Shoot");
     }
 
+    //Triggers the laser to spawn and commences a cooldown period
     IEnumerator Shoot()
     {
         canShoot = false;
@@ -55,6 +59,7 @@ public class Player : MonoBehaviour
         canShoot = true;
     }
 
+    //Spawns the laser
     public GameObject SpawnLaser()
     {
         GameObject newLaser = Instantiate(laser);
@@ -62,6 +67,7 @@ public class Player : MonoBehaviour
         return newLaser;
     }
 
+    //Moves the player left
     public void MoveLeft()
     {
         transform.Translate(-Vector3.left * Time.deltaTime * speed);
@@ -71,6 +77,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    //Moves the player right
     public void MoveRight()
     {
         transform.Translate(-Vector3.right * Time.deltaTime * speed);
@@ -80,12 +87,14 @@ public class Player : MonoBehaviour
         }
     }
 
+    //Kills the player
     public void Explode()
     {
         explosion.SetActive(true);
         isDead = true;
     }
 
+    //Resets the player after death
     public void Reset()
     {
         explosion.SetActive(false);

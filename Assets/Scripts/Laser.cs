@@ -7,6 +7,7 @@ public class Laser : MonoBehaviour
     [SerializeField]
     private Spawner spawner;
 
+    //Moves and eventually destroys laser
 	void Update ()
     {
         transform.Translate(Vector3.back * Time.deltaTime * 5);
@@ -16,6 +17,7 @@ public class Laser : MonoBehaviour
         }
     }
 
+    //Detects collision with enemy
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<Enemy>() != null)

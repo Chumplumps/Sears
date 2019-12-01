@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
         Move();
     }
 
+    //Makes the enemy descend 
     public void Move()
     {
         transform.Translate(Vector3.down * Time.deltaTime * speed);
@@ -21,6 +22,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    //Detects collision with player
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "player")
