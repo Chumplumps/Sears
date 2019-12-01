@@ -38,21 +38,21 @@ public class TestSuite
     [UnityTest]
     public IEnumerator LaserDestroysEnemies()
     {
-        GameObject asteroid = game.GetSpawner().SpawnAsteroid();
-        asteroid.transform.position = Vector3.zero;
+        GameObject enemy = game.GetSpawner().SpawnEnemy();
+        enemy.transform.position = Vector3.zero;
         GameObject lazer = game.GetPlayer().SpawnLaser();
         lazer.transform.position = Vector3.zero;
         yield return new WaitForSeconds(0.1f);
 
-        UnityEngine.Assertions.Assert.IsNull(asteroid);
+        UnityEngine.Assertions.Assert.IsNull(enemy);
     }
 
     //Tests to see if score increases when enemies are destroyed
     [UnityTest]
     public IEnumerator ScoreIncreases()
     {
-        GameObject asteroid = game.GetSpawner().SpawnAsteroid();
-        asteroid.transform.position = Vector3.zero;
+        GameObject enemy = game.GetSpawner().SpawnEnemy();
+        enemy.transform.position = Vector3.zero;
         GameObject lazer = game.GetPlayer().SpawnLaser();
         lazer.transform.position = Vector3.zero;
         yield return new WaitForSeconds(0.1f);
@@ -64,19 +64,19 @@ public class TestSuite
     [UnityTest]
     public IEnumerator EnemiesMoveDown()
     {
-        GameObject asteroid = game.GetSpawner().SpawnAsteroid();
-        float initialYPos = asteroid.transform.position.y;
+        GameObject enemy = game.GetSpawner().SpawnEnemy();
+        float initialYPos = enemy.transform.position.y;
         yield return new WaitForSeconds(0.1f);
 
-        Assert.Less(asteroid.transform.position.y, initialYPos);
+        Assert.Less(enemy.transform.position.y, initialYPos);
     }
 
     //Tests to see if game resets
     [UnityTest]
     public IEnumerator GameResets()
     {
-        GameObject asteroid = game.GetSpawner().SpawnAsteroid();
-        asteroid.transform.position = game.GetPlayer().transform.position;
+        GameObject enemy = game.GetSpawner().SpawnEnemy();
+        enemy.transform.position = game.GetPlayer().transform.position;
         yield return new WaitForSeconds(0.1f);
 
         Assert.True(game.isGameOver);

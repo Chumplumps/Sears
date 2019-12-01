@@ -602,12 +602,12 @@ ParticleSystem:
   m_GameObject: {fileID: 1293165385092864}
   serializedVersion: 6
   lengthInSec: 1.72
-  simulationSpeed: 1
+  simulationSpeed: 3
   stopAction: 0
   cullingMode: 1
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -1426,7 +1426,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 30
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -5744,11 +5744,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1139f9ab85cdfb247ad7184c77a98646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroids: []
-  asteroid1: {fileID: 1918484266454062, guid: 0967477038b42074b89d5a5e0332c0b8, type: 3}
-  asteroid2: {fileID: 1250866368372588, guid: e2c9968c0cd782443b03d26a6ccf9664, type: 3}
-  asteroid3: {fileID: 1927950529812976, guid: 6ed3af977d730f14191f1c897d7cf80a, type: 3}
-  asteroid4: {fileID: 1612296084411496, guid: f50a9bea22ffe654da9305c58ae6ee5c, type: 3}
+  enemies: []
+  enemy1: {fileID: 1918484266454062, guid: 0967477038b42074b89d5a5e0332c0b8, type: 3}
+  enemy2: {fileID: 1250866368372588, guid: e2c9968c0cd782443b03d26a6ccf9664, type: 3}
+  enemy3: {fileID: 1927950529812976, guid: 6ed3af977d730f14191f1c897d7cf80a, type: 3}
+  enemy4: {fileID: 1612296084411496, guid: f50a9bea22ffe654da9305c58ae6ee5c, type: 3}
 --- !u!1 &1845083579151638
 GameObject:
   m_ObjectHideFlags: 0

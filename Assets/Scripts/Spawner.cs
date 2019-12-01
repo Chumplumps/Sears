@@ -28,12 +28,12 @@ public class Spawner : MonoBehaviour
     {
         yield return new WaitForSeconds(0.4f);
 
-        SpawnAsteroid();
+        SpawnEnemy();
         StartCoroutine("Spawn");
     }
 
     //Spawns enemies in random locations
-    public GameObject SpawnAsteroid()
+    public GameObject SpawnEnemy()
     {
         int random = Random.Range(1, 5);
         GameObject enemy;
